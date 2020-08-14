@@ -1,0 +1,87 @@
+# Config information
+_config_path: null
+_template_config_path: null
+
+# Configuring CycleGAN training
+prefix: cyclegan
+mode: train
+
+# Weights and Biases
+wandb_entity: hazy-research
+wandb_project: model-patching
+wandb_group: stage-1
+wandb_job_type: training
+
+# Random seed
+seed: 1
+
+# Architecture
+norm_type: batchnorm # instancenorm
+output_init: 0.02
+residual_outputs: False
+
+# Optimizer
+lr_gen: 0.0002
+lr_disc: 0.0002
+beta_1_gen: 0.5
+beta_1_disc: 0.5
+lr_scheduler: constant
+
+# Replay buffer
+replay_buffer_size: 1
+
+# Training
+n_epochs: 10
+batch_size: 128
+gan_loss: bce
+cycle_loss_scale: 10.0
+source_cycle_loss_only: False
+identity_loss_scale: 10.0
+grad_penalty: none
+grad_penalty_scale: 10.0
+
+# Dataset splitting
+validation_frac: 0.0
+
+# Dataset settings
+source_dataset: mnist
+source_dataset_version: 3.*.*
+# this picks out class 7, then shuffles it with buffer size 100000 and seed 1 and takes out some examples (-1 = all)
+source_dataset_modifier: 'class:7/shuffle:20000,1/take:-1'
+target_dataset: mnist_corrupted/zigzag
+target_dataset_version: 1.*.*
+# this picks out class 7, then shuffles it (with a different random seed: essential!) and takes out some examples (-1 = all)
+target_dataset_modifier: 'class:7/shuffle:20000,2/take:-1'
+datadir: /home/tfdata/
+
+# Dataflow settings
+dataflow: disk_cached
+cache_dir: /home/tfcache/
+
+# Training data augmentation settings
+train_daug_pipeline: [BasicImagePreprocessingPipeline]
+train_daug_pipeline_args: [[minusone-one]]
+
+# Validation data augmentation settings
+val_daug_pipeline: [BasicImagePreprocessingPipeline]
+val_daug_pipeline_args: [[minusone-one]]
+
+# Test data augmentation settings
+test_daug_pipeline: [BasicImagePreprocessingPipeline]
+test_daug_pipeline_args: [[minusone-one]]
+
+# Path to checkpoints in wandb.run directory
+checkpoint_path: '/checkpoints/'
+
+# Checkpoint every _ epochs
+checkpoint_freq: 5
+
+# Log images every _ steps
+image_log_freq: 50
+
+# Resuming an old run from Weights and Biases
+resume: False
+prev_wandb_run_id: null
+prev_wandb_project: null
+prev_wandb_entity: hazy-research
+prev_ckpt_path: '' # where are the checkpoints located in wandb (relative to this run's root path)

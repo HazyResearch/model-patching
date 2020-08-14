@@ -1,0 +1,77 @@
+# Configuring CycleGAN training
+prefix: cyclegan
+mode: train
+
+# Weights and Biases
+wandb_entity: hazy-research # change this to your entity
+wandb_project: model-patching
+wandb_group: stage-1
+wandb_job_type: waterbirds
+
+# Random seed
+seed: 1
+
+# Architecture
+norm_type: batchnorm
+
+# Replay buffer
+replay_buffer_size: 50
+
+# Optimizer
+lr_gen: 0.0002
+lr_disc: 0.0002
+beta_1_gen: 0.5
+beta_1_disc: 0.5
+
+# Training
+n_epochs: 4000
+batch_size: 4
+gan_loss: bce
+cycle_loss_scale: 10.0
+identity_loss_scale: 1.0
+
+# Dataset splitting
+validation_frac: 0.0
+
+# Dataset settings
+source_dataset: waterbirds/1/0/y
+source_dataset_version: 1.*.*
+source_dataset_modifier: 'take:56'
+
+target_dataset: waterbirds/1/1/y
+target_dataset_version: 1.*.*
+target_dataset_modifier: 'take:56'
+
+datadir: /home/waterbirds_tfrecord_224 # adjust this path
+
+# Dataflow settings
+dataflow: disk_cached
+cache_dir: /home/tfcache/ # adjust this path to a temporary cache for Tensorflow
+
+# Training data augmentation settings
+train_daug_pipeline: [ImgAugAugmentationPipeline, BasicImagePreprocessingPipeline]
+train_daug_pipeline_args: [['fliplr:crop'], [minusone-one]]
+
+# Validation data augmentation settings
+val_daug_pipeline: [BasicImagePreprocessingPipeline]
+val_daug_pipeline_args: [[minusone-one]]
+
+# Test data augmentation settings
+test_daug_pipeline: [BasicImagePreprocessingPipeline]
+test_daug_pipeline_args: [[minusone-one]]
+
+# Path to checkpoints in wandb.run directory
+checkpoint_path: '/checkpoints/'
+
+# Checkpoint every _ epochs
+checkpoint_freq: 50
+
+# Log images every _ steps
+image_log_freq: 200
+
+# Resuming an old run from Weights and Biases
+resume: False
+prev_wandb_run_id: null
+prev_wandb_project: null
+prev_wandb_entity: hazy-research
+prev_ckpt_path: '' # where are the checkpoints located in wandb (relative to this run's root path)
