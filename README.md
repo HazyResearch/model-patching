@@ -16,7 +16,7 @@ a two-stage framework for improving robustness that encourages the model to be i
 Model patching
 first models subgroup features within a class and learns semantic transformations between them,
 and then trains a classifier with data augmentations that deliberately manipulate subgroup features.
-We instantiate model patching with CAMEL, which (1) uses a CycleGAN to learn the intra-class, inter-subgroup augmentations, and (2) balances subgroup performance using a theoretically-motivated subgroup consistency regularizer, accompanied by a new robust ohttps://app.wandb.ai/hazy-research/celeba/runs/xs4l2gi0?workspace=user-alberthttps://app.wandb.ai/hazy-research/celeba/runs/xs4l2gi0?workspace=user-albertbjective.
+We instantiate model patching with CAMEL, which (1) uses a CycleGAN to learn the intra-class, inter-subgroup augmentations, and (2) balances subgroup performance using a theoretically-motivated subgroup consistency regularizer, accompanied by a new robust objective.
 We demonstrate CAMEL's effectiveness on 3 benchmark datasets, with reductions in robust error of up to 33\% relative to the best baseline. Lastly, CAMEL successfully patches a model that fails due to spurious features on a real-world skin cancer dataset. 
 
 
@@ -99,10 +99,8 @@ https://app.wandb.ai/hazy-research/celeba/runs/xs4l2gi0
 For Stage 2, we include configs for training classifiers with consistency regularization and Group DRO [Sagawa et al., ICLR 2020], as well as standard ERM training. 
 
 ```bash
-# Training {CAMEL, Group DRO, ERM}
-# on {MNIST-Correlation, Waterbirds, CelebA-Undersampled}
-python -m augmentation.methods.robust.train \
-  --config augmentation/configs/stage-2/{mnist-correlation,waterbirds,celeba}/{camel,gdro,erm}/config.yaml
+# Training {CAMEL, Group DRO, ERM} on {MNIST-Correlation, Waterbirds, CelebA-Undersampled}
+python -m augmentation.methods.robust.train --config augmentation/configs/stage-2/{mnist-correlation,waterbirds,celeba}/{camel,gdro,erm}/config.yaml
 ```
 
 <!-- ## Citation
