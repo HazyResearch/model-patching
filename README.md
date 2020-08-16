@@ -124,3 +124,7 @@ If you use our codebase, or otherwise found our work valuable, please cite us
 ``` -->
 ## Questions and Feedback
 For feedback on our work, and any specific questions, feel free to reach out at `kgoel [at] cs [dot] stanford [dot] edu`.
+
+
+## About
+The emoji for model patching on the Hazy Research website was designed by OpenMoji – the open-source emoji and icon project. License: CC BY-SA 4.0
