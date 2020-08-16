@@ -1,9 +1,9 @@
 # Model Patching: Closing the Subgroup Performance Gap with Data Augmentation
 ![Model patching pipeline](assets/model_patching.jpg "Model patching pipeline")
 > **Model Patching: Closing the Subgroup Performance Gap with Data Augmentation**\
-> Karan Goel*, Albert Gu*, Sharon Li, Christopher Ré\
+> Karan Goel*, Albert Gu*, Yixuan Li, Christopher Ré\
 > Stanford University\
-> Arxiv Preprint
+> arXiv 
 
 
 
@@ -99,7 +99,7 @@ https://app.wandb.ai/hazy-research/celeba/runs/xs4l2gi0
 ```
 
 
-## Stage 2: Training an End-Model
+## Stage 2: Training a Robust End-Model
 
 For Stage 2, we include configs for training classifiers with consistency regularization and Group DRO [Sagawa et al., ICLR 2020], as well as standard ERM training. 
 
