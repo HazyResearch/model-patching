@@ -3,7 +3,7 @@
 > **Model Patching: Closing the Subgroup Performance Gap with Data Augmentation**\
 > Karan Goel*, Albert Gu*, Yixuan Li, Christopher Ré\
 > Stanford University\
-> Paper: https://arxiv.org/pdf/2008.06775.pdf\
+> Paper: https://arxiv.org/pdf/2008.06775.pdf \
 > Blog: http://hazyresearch.stanford.edu/data-aug-part-4
 
 
