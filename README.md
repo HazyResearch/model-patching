@@ -3,7 +3,8 @@
 > **Model Patching: Closing the Subgroup Performance Gap with Data Augmentation**\
 > Karan Goel*, Albert Gu*, Yixuan Li, Christopher Ré\
 > Stanford University\
-> arXiv 
+> Paper: https://arxiv.org/pdf/2008.06775.pdf
+> Blog: http://hazyresearch.stanford.edu/data-aug-part-4
 
 
 
@@ -112,16 +113,17 @@ These configs are supplied to the `augmentations/methods/robust/train.py` file. 
 
 We include an implementation of the Group DRO trainer as well as various consistency penalties at `augmentation/methods/robust/utils.py`. They should be easy to port over to your own codebase.
 
-<!-- ## Citation
+## Citation
 If you use our codebase, or otherwise found our work valuable, please cite us
 ```
-@inproceedings{goelmodelpatching,
+@article{goelmodelpatching,
   title={Model Patching: Closing the Subgroup Performance Gap with Data Augmentation},
   author={Karan Goel and Albert Gu and Yixuan Li and Christopher Re},
-  booktitle={Arxiv},
+  journal={arXiv preprint arXiv:2008.06775},
   year={2020}
 }
-``` -->
+```
+
 ## Questions and Feedback
 For feedback on our work, and any specific questions, feel free to reach out at `kgoel [at] cs [dot] stanford [dot] edu`.
 
