@@ -62,7 +62,7 @@ metric_names: ['accuracy', 'sparse_categorical_crossentropy']
 
 # Dataset splitting
 cross_validation: False
-validation_frac: 0.
+validation_frac: 0.5
 
 # Dataset settings
 train_datasets:
